@@ -21,6 +21,7 @@ sudo mkdir /usr/lib/systemd/system-sleep && cd /usr/lib/systemd/system-sleep
 
 sudo nano suspend_wifi
 
+
 #!/bin/sh
 if [ "${1}" == "pre" ]; then
   modprobe -rv mac80211
@@ -29,3 +30,15 @@ elif [ "${1}" == "post" ]; then
 fi
 
 sudo chmod 755 suspend_wifi
+
+
+======
+Silent boot
+
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=3 systemd.show_status=auto rd.udev.log_level=3 vt.global_cursor_default=0"
+
+https://gist.github.com/starquake/856b05dc88d68e7509e23f8995f7ac5e
+
+https://wiki.archlinux.org/title/Silent_boot
+
