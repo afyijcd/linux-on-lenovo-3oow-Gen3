@@ -19,7 +19,6 @@ in /etc/default/grub (sudo update-grub)
 
 sudo mkdir /usr/lib/systemd/system-sleep && cd /usr/lib/systemd/system-sleep
 sudo nano suspend_wifi
-[pas this:]
 
 #!/bin/sh
 if [ "${1}" == "pre" ]; then
