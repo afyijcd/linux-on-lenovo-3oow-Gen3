@@ -18,6 +18,7 @@ in /etc/default/grub (sudo update-grub)
 3. make a file suspend_wifi in /usr/lib/systemd/system-sleep
 
 sudo mkdir /usr/lib/systemd/system-sleep && cd /usr/lib/systemd/system-sleep
+
 sudo nano suspend_wifi
 
 #!/bin/sh
