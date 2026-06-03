@@ -15,7 +15,17 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i8042.direct i8042.dumbkbd"
 
 in /etc/default/grub (sudo update-grub)
 
-3. set powersaver=2 in network mnanager configuration
+3. make a file suspend_wifi in /usr/lib/systemd/system-sleep
 
-sudo nano /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+sudo mkdir /usr/lib/systemd/system-sleep && cd /usr/lib/systemd/system-sleep
+sudo nano suspend_wifi
+[pas this:]
 
+#!/bin/sh
+if [ "${1}" == "pre" ]; then
+  modprobe -rv mac80211
+elif [ "${1}" == "post" ]; then
+  modprobe -v mac80211
+fi
+
+sudo chmod 755 suspend_wifi
